@@ -14,7 +14,7 @@ import Primary from './components/Courses_components/Primary.jsx'
 import Admission from './components/Admission_components/Admission.jsx'
 import { Contact } from 'lucide-react'
 import ContactUs from './components/Contact.jsx'
-import Gallery from './components/gallary.jsx'
+import Gallery from './components/Gallery.jsx'
 
 const router = createBrowserRouter([
   {path:'/', element:<Layout/>, 
