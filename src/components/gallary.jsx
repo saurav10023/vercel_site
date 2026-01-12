@@ -1,7 +1,7 @@
 import img1 from "./galleryfiles/pool.jpg"
 import img2 from "./galleryfiles/flaggirl.jpg"
 import img3 from "./galleryfiles/sarhul.jpg"
-import img4 from "./galleryfiles/fancy dress.jpg"
+import img4 from "./galleryfiles/fancydress.jpg"
 import img5 from "./galleryfiles/sports-1.jpg"
 import img6 from "./galleryfiles/playgroup.jpg"
 import img7 from "./galleryfiles/eid.jpg"
