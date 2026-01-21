@@ -1,28 +1,29 @@
 import React, { useState } from "react";
-import { Link , NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import logo from "../files/logo.jpg"
-import { Menu, X, ChevronDown } from "lucide-react";
+import logo from "../files/logo.jpg";
+import {
+  List,
+  ChevronUp,
+  HouseIcon,
+  HandshakeIcon,
+  Backpack,
+  FileUserIcon,
+  ImagesIcon,
+  CreditCardIcon,
+  HeadsetIcon,
+  UserPlusIcon,
+  Baby,
+  BookOpen,
+  School,
+  ClipboardList,
+  FileQuestion,
+  UserCheck,
+  AlignVerticalJustifyEnd,
+} from "lucide-react";
 
-export default function Header(){
-  const [display1 , changedisplay1] = useState(false) ;
-  const [display2 , changedisplay2] = useState(false) ;
-
-  const togglecourse=() =>{
-    changedisplay1(prev => !prev);
-    changedisplay2(false);
-  }
-
-  const toggleadd=()=>{
-    changedisplay2(prev => !prev);
-    changedisplay1(false);
-  }
-
-  const off =()=>{
-    changedisplay1(false)
-    changedisplay2(false)
-  }
-
+export default function Header() {
+  /* ================= MOBILE STATES ================= */
   const [menuOpen, setMenuOpen] = useState(false);
   const [courseOpen, setCourseOpen] = useState(false);
   const [admissionOpen, setAdmissionOpen] = useState(false);
@@ -33,9 +34,39 @@ export default function Header(){
     setAdmissionOpen(false);
   };
 
-    return (
-        <>
-          <div className="lg:hidden sticky top-0 z-50 bg-fuchsia-800 shadow-md">
+  const clickcourse = () => {
+    setCourseOpen(!courseOpen);
+    setAdmissionOpen(false);
+  };
+
+  const clickadmission = () => {
+    setAdmissionOpen(!admissionOpen);
+    setCourseOpen(false);
+  };
+
+  /* ================= DESKTOP STATES ================= */
+  const [display1, setDisplay1] = useState(false);
+  const [display2, setDisplay2] = useState(false);
+
+  const togglecourse = () => {
+    setDisplay1(!display1);
+    setDisplay2(false);
+  };
+
+  const toggleadd = () => {
+    setDisplay2(!display2);
+    setDisplay1(false);
+  };
+
+  const off = () => {
+    setDisplay1(false);
+    setDisplay2(false);
+  };
+
+  return (
+    <>
+      {/* ================= MOBILE HEADER ================= */}
+      <div className="lg:hidden sticky top-0 z-50 bg-fuchsia-800 shadow-md">
         <div className="flex justify-between items-center px-4 py-3">
           <div className="flex items-center gap-3">
             <div className="bg-white rounded-lg p-1">
@@ -47,250 +78,156 @@ export default function Header(){
           </div>
 
           <button onClick={() => setMenuOpen(!menuOpen)} className="text-white">
-            {menuOpen ? <X size={26} /> : <Menu size={26} />}
+            {menuOpen ? <ChevronUp size={26} /> : <List size={26} />}
           </button>
         </div>
 
         {menuOpen && (
-          <div className="bg-white px-4 py-4 space-y-3 text-gray-800">
-            <Link to="/" onClick={closeAll} className="block font-semibold">Home</Link>
-            <Link to="/about" onClick={closeAll} className="block font-semibold">About Us</Link>
+          <div className="bg-white px-4 py-5 space-y-4 text-gray-800">
 
-            {/* Courses Accordion */}
-            <button
-              className="flex justify-center  w-full font-semibold"
-              onClick={() => setCourseOpen(!courseOpen)}
-            >
-              Our Courses ▾
+            <Link to="/" onClick={closeAll} className="flex items-center gap-3 font-semibold py-2">
+              <HouseIcon size={20} /> Home
+            </Link>
+
+            <Link to="/about" onClick={closeAll} className="flex items-center gap-3 font-semibold py-2">
+              <HandshakeIcon size={20} /> About Us
+            </Link>
+
+            {/* COURSES */}
+            <button onClick={clickcourse} className="flex justify-between w-full font-semibold py-2">
+              <span className="flex items-center gap-3">
+                <Backpack size={20} /> Our Courses
+              </span>
+              {courseOpen ? "▲" : "▼"}
             </button>
+
             {courseOpen && (
-              <div className="pl-4 text-sm flex flex-row gap-2">
-                <div className="px-1 shadow-emerald-950 bg-fuchsia-200 rounded-lg">
-                  <Link to="/courses/playgroup" onClick={closeAll} >Play Group </Link>
-                </div>
-
-                <div className="px-1 shadow-emerald-950 bg-fuchsia-200  rounded-lg">
-                  <Link to="/courses/nursery" onClick={closeAll}>Kindergarten</Link>
-                </div>
-
-                <div className="px-1 shadow-emerald-950 bg-fuchsia-200  rounded-lg">
-                  <Link to="/courses/primary" onClick={closeAll}>Primary</Link>
-                </div>
-                
+              <div className="ml-6 border-l-2 border-fuchsia-300 pl-4 flex flex-col gap-2 text-sm">
+                <Link to="/courses/playgroup" onClick={closeAll} className="flex items-center gap-2 bg-fuchsia-50 rounded-lg px-3 py-2">
+                  <Baby size={16} className="text-fuchsia-700" /> Play Group
+                </Link>
+                <Link to="/courses/nursery" onClick={closeAll} className="flex items-center gap-2 bg-fuchsia-50 rounded-lg px-3 py-2">
+                  <BookOpen size={16} className="text-fuchsia-700" /> Kindergarten
+                </Link>
+                <Link to="/courses/primary" onClick={closeAll} className="flex items-center gap-2 bg-fuchsia-50 rounded-lg px-3 py-2">
+                  <School size={16} className="text-fuchsia-700" /> Primary
+                </Link>
               </div>
             )}
 
-            {/* Admission Accordion */}
-            <button
-              className="flex justify-center w-full font-semibold"
-              onClick={() => setAdmissionOpen(!admissionOpen)}
-            >
-              Admission ▾
+            {/* ADMISSION */}
+            <button onClick={clickadmission} className="flex justify-between w-full font-semibold py-2">
+              <span className="flex items-center gap-3">
+                <FileUserIcon size={20} /> Admission
+              </span>
+              {admissionOpen ? "▲" : "▼"}
             </button>
+
             {admissionOpen && (
-              <div className="pl-4 space-y-2 text-sm">
-
-                <div className="px-1 shadow-emerald-950 bg-fuchsia-200 rounded-lg">
-                  <Link to="/admission/process" onClick={closeAll} >Admission Process </Link>
-                </div>
-
-                <div className="px-1 shadow-emerald-950 bg-fuchsia-200 rounded-lg">
-                  <Link to="https://btlk.scientificstudy.in/online/admissionenquiry?key=btlk&tab=admissionenquiry" onClick={closeAll}>Admission Enquiry</Link>
-                </div> 
-
-                <div className="px-1 shadow-emerald-950 bg-fuchsia-200 rounded-lg">
-                  <Link to="https://btlk.scientificstudy.in/online/registration?key=btlk&tab=registration" onClick={closeAll}>Register Online</Link>
-                </div>               
+              <div className="ml-6 border-l-2 border-fuchsia-300 pl-4 flex flex-col gap-2 text-sm">
+                <Link to="/admission/process" onClick={closeAll} className="flex items-center gap-2 bg-fuchsia-50 rounded-lg px-3 py-2">
+                  <ClipboardList size={16} className="text-fuchsia-700" /> Admission Process
+                </Link>
+                <Link to="https://btlk.scientificstudy.in/online/admissionenquiry?key=btlk&tab=admissionenquiry" onClick={closeAll} className="flex items-center gap-2 bg-fuchsia-50 rounded-lg px-3 py-2">
+                  <FileQuestion size={16} className="text-fuchsia-700" /> Admission Enquiry
+                </Link>
+                <Link to="https://btlk.scientificstudy.in/online/registration?key=btlk&tab=registration" onClick={closeAll} className="flex items-center gap-2 bg-fuchsia-50 rounded-lg px-3 py-2">
+                  <UserCheck size={16} className="text-fuchsia-700" /> Register Online
+                </Link>
               </div>
             )}
 
-            <Link to="/gallery" onClick={closeAll} className="block font-semibold">Gallery</Link>
-            <Link to="/contact" onClick={closeAll} className="block font-semibold">Contact Us</Link>
-            <Link to="https://jobs.scientificstudy.in/career?schoolcode=btlk" onClick={closeAll} className="block font-semibold">Career</Link>
+            <Link to="/feestructure" onClick={closeAll} className="flex items-center gap-3 font-semibold py-2">
+              <AlignVerticalJustifyEnd size={20} /> Fee Structure
+            </Link>
+
+            <Link to="https://btlk.scientificstudy.in/payment?key=btlk" onClick={closeAll} className="flex items-center gap-3 font-semibold py-2">
+              <CreditCardIcon size={20} /> Online Fee Payment
+            </Link>
+            <Link to="/gallery" onClick={closeAll} className="flex items-center gap-3 font-semibold py-2">
+              <ImagesIcon size={20} /> Gallery
+            </Link>
+
+            <Link to="/contact" onClick={closeAll} className="flex items-center gap-3 font-semibold py-2">
+              <HeadsetIcon size={20} /> Contact Us
+            </Link>
+
+            <Link to="https://jobs.scientificstudy.in/career?schoolcode=btlk" onClick={closeAll} className="flex items-center gap-3 font-semibold py-2">
+              <UserPlusIcon size={20} /> Career
+            </Link>
+
           </div>
         )}
       </div>
 
+      {/* ================= DESKTOP HEADER (UNCHANGED) ================= */}
+      <div className="hidden lg:block sticky top-0 z-50">
 
-
-
-        {/* for desktop screen */}
-
-
-        <div className="hidden lg:block sticky top-0 z-50">
-        <header className="w-full shadow-2xl " >
-        <div className="bg-white text-fuchsia-800 p-1.5  ">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between ">
-          {/* RIGHT: Contact + Buttons */}
-          <div className="flex flex-row gap-10 md:gap-0 pr-5">
-            <div className="text-sm ">
-              <p className="flex gap-2">
-                E-mail Id –{" "}
-                <span className="font-semibold">
-                  bachpangumla@gmail.com
-                </span>
-                Phone No.{" "}
-                <span className="font-semibold">
-                  +91-9608881888
-                </span>
+        <header className="w-full shadow-2xl">
+          <div className="bg-white text-fuchsia-800 p-1.5">
+            <div className="max-w-7xl mx-auto flex justify-between text-sm">
+              <p>
+                E-mail Id – <span className="font-semibold">bachpangumla@gmail.com</span>
+              </p>
+              <p>
+                Phone No. <span className="font-semibold">+91-9608881888</span>
               </p>
             </div>
-
-            <div className="flex  text-l font-semibold align-bottom text-base gap-3 justify-end pl-25">
-              <Link to="https://btlk.scientificstudy.in/payment?key=btlk">
-              <button className="relative z-0 rounded  transition-[all_0.3s_ease] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-0 after:rounded after:text-white after:bg-blue-200 after:transition-[all_0.5s_ease]  hover:after:w-full ">💳 ONLINE FEE
-                </button>
-              </Link>
-                
-              <Link to="https://btlk.scientificstudy.in/login">
-              <button className="relative z-0 rounded transition-[all_0.3s_ease] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-0 after:rounded after:bg-blue-200 after:transition-[all_0.5s_ease]  hover:after:w-full ">🎧 SCHOOL PORTAL LOGIN
-                </button>
-              </Link>
-              <Link to="https://btlk.scientificstudy.in/admissionregistration?key=btlk">
-              <button className="relative z-0 rounded   transition-[all_0.3s_ease] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-0 after:rounded after:bg-blue-200    after:transition-[all_0.5s_ease]  hover:after:w-full ">🧾 ONLINE REGISTRATION 
-                </button>
-              </Link>
-            </div>
           </div>
+        </header>
+
+        <div className="bg-fuchsia-800 flex justify-between px-4 py-2 shadow-lg">
+          <div className="flex items-center gap-4">
+            <div className="bg-white rounded-xl">
+              <img src={logo} alt="Logo" className="h-20" />
+            </div>
+            <h1 className="text-xl font-bold text-white">
+              Bachpan, The Little Kingdom
+            </h1>
+          </div>
+
+          <nav className="mt-6">
+            <ul className="flex gap-8 text-white font-semibold">
+
+              <li><Link to="/" onClick={off}>Home</Link></li>
+              <li><Link to="/about" onClick={off}>About Us</Link></li>
+
+              <li className="relative">
+                <button onClick={togglecourse}>Our Courses ▾</button>
+                {display1 && (
+                  <ul className="absolute bg-white text-gray-700 rounded-lg shadow-lg w-48 mt-2">
+                    <li><Link to="/courses/playgroup" onClick={togglecourse} className="block px-4 py-2 hover:bg-pink-100">Play Group</Link></li>
+                    <li><Link to="/courses/nursery" onClick={togglecourse} className="block px-4 py-2 hover:bg-pink-100">Kindergarten</Link></li>
+                    <li><Link to="/courses/primary" onClick={togglecourse} className="block px-4 py-2 hover:bg-pink-100">Primary School</Link></li>
+                  </ul>
+                )}
+              </li>
+
+              <li className="relative">
+                <button onClick={toggleadd}>Admission ▾</button>
+                {display2 && (
+                  <ul className="absolute bg-white text-gray-700 rounded-lg shadow-lg w-48 mt-2">
+                    <li><Link to="/admission/process" onClick={toggleadd} className="block px-4 py-2 hover:bg-indigo-100">Admission Process</Link></li>
+                    <li><Link to="https://btlk.scientificstudy.in/online/admissionenquiry?key=btlk&tab=admissionenquiry" onClick={off} className="block px-4 py-2 hover:bg-indigo-100">Admission Enquiry</Link></li>
+                    <li><Link to="https://btlk.scientificstudy.in/online/registration?key=btlk&tab=registration" onClick={off} className="block px-4 py-2 hover:bg-indigo-100">Register Online</Link></li>
+                  </ul>
+                )}
+              </li>
+
+              <li><Link to="/gallery" onClick={off}>Gallery</Link></li>
+              <li><Link to="/contact" onClick={off}>Contact Us</Link></li>
+              <li><Link to="https://jobs.scientificstudy.in/career?schoolcode=btlk" onClick={off}>Career</Link></li>
+
+            </ul>
+          </nav>
         </div>
       </div>
-    </header>
 
 
-    {/* NAV BAR */}
-     <div className=" w-full flex flex-row bg-fuchsia-800 shadow-l px-2 py-1 sticky z-50 top-0 justify-between shadow-gray-700 ">
-      <div className="flex items-center gap-4">
-            <div className="bg-white rounded-xl ">
-              <img
-                src={logo}
-                alt="Bachpan Logo"
-                className="h-20 w-auto"
-              />
-            </div>
-
-            <div>
-              <h1 className="text-xl font-bold text-white">
-                Bacphan, The Little Kingdom
-              </h1>
-            </div>
-      </div>
-      <nav className=" mx-auto  shadow-lg px-4 py-2 sticky z-50 top-0 mt-4  bg-fuchsia-800 align-middle">
-      <ul className="flex justify-center gap-8 text-white font-semibold">
-
-        <li>
-          <Link to="/" className="hover:underline" onClick={()=>{off()}}>
-            Home
-          </Link>
-        </li>
-
-        <li>
-          <Link to="/about" className="hover:underline" onClick={()=>{off()}}>
-            About Us
-          </Link>
-        </li>
-
-        {/* DROPDOWN */}
-        <li className="relative group cursor-pointer">
-          <button className="hover:underline" onClick={()=> {togglecourse()}}>
-            Our Courses ▾
-          </button>
-
-          {/* Dropdown menu */}
-          {display1 && (
-            <ul className="absolute left-0 top-full mt-2  group-hover:block bg-white text-gray-700 rounded-lg shadow-lg w-48 z-50">
-            <li>
-              <Link
-                to="/courses/playgroup"
-                className="block px-4 py-2 hover:bg-pink-100 rounded-t-lg"
-                onClick={()=> {togglecourse()}}
-              >
-                Play Group
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/courses/nursery"
-                className="block px-4 py-2 hover:bg-pink-100"
-                onClick={()=> {togglecourse()}}
-              >
-                Kindergarten
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/courses/primary"
-                className="block px-4 py-2 hover:bg-pink-100 rounded-b-lg"
-                onClick={()=> {togglecourse()}}
-              >
-                Primary School
-              </Link>
-            </li>
-          </ul>
-          )}
-        </li>
-
-        {/* DROPDOWN 2 */}
-        <li className="relative group cursor-pointer">
-        <span className="hover:underline" onClick={()=>toggleadd()} >
-            Admission ▾
-          </span>
-
-          {display2  &&(
-            <ul className="absolute left-0 top-full mt-2  group-hover:block bg-white text-gray-700 rounded-lg shadow-lg w-48 z-50">
-            <li>
-              <Link
-              onClick={()=>toggleadd()}
-                to="/admission/process"
-                className="block px-4 py-2 hover:bg-indigo-100 rounded-t-lg"
-              >
-                Admission Process
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="https://btlk.scientificstudy.in/online/admissionenquiry?key=btlk&tab=admissionenquiry"
-                className="block px-4 py-2 hover:bg-indigo-100 rounded-b-lg"
-                onClick={()=>{off()}}
-              >
-                Admission Enquiry
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="https://btlk.scientificstudy.in/online/registration?key=btlk&tab=registration"
-                onClick={()=>{off()}}
-                className="block px-4 py-2 hover:bg-indigo-100 rounded-b-lg"
-              >
-                Register Online
-              </Link>
-            </li>
-          </ul>
-          )}
-        </li>
-
-        <li>
-          <Link to="/gallery" className="hover:underline" onClick={()=>{off()}}>
-            Gallery
-          </Link>
-        </li>
-
-        <li>
-          <Link to="/contact" className="hover:underline" onClick={()=>{off()}}>
-            Contact Us
-          </Link>
-        </li>
-        <li>
-          <Link to="https://jobs.scientificstudy.in/career?schoolcode=btlk" className="hover:underline" onClick={()=>{off()}}>
-            Career
-          </Link>
-        </li>
-
-      </ul>
-    </nav>  
-     </div>
-      </div>
-    
+      <div className=" text-fuchsia-800 font-semibold align-bottom text-md gap-10 justify-center mt-1 mb-2 , hidden , lg:flex"> 
+        <Link to="/feestructure"> <button className="relative z-0 rounded transition-[all_0.3s_ease] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-0 after:rounded after:bg-blue-200 after:transition-[all_0.5s_ease] hover:after:w-full ">🧾 FEE STRUCTURE </button> </Link>
+        <Link to="https://btlk.scientificstudy.in/payment?key=btlk"> <button className="relative z-0 rounded transition-[all_0.3s_ease] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-0 after:rounded after:text-white after:bg-blue-200 after:transition-[all_0.5s_ease] hover:after:w-full ">💳 ONLINE FEE </button> </Link> <Link to="https://btlk.scientificstudy.in/login"> <button className="relative z-0 rounded transition-[all_0.3s_ease] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-0 after:rounded after:bg-blue-200 after:transition-[all_0.5s_ease] hover:after:w-full ">🎧 SCHOOL PORTAL LOGIN </button> </Link> <Link to="https://btlk.scientificstudy.in/admissionregistration?key=btlk"> <button className="relative z-0 rounded transition-[all_0.3s_ease] after:absolute after:left-0 after:top-0 after:-z-10 after:h-full after:w-0 after:rounded after:bg-blue-200 after:transition-[all_0.5s_ease] hover:after:w-full ">🧾 ONLINE REGISTRATION </button> </Link> 
+       </div>
     </>
-    );
+  );
 }

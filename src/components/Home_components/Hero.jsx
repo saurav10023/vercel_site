@@ -1,12 +1,12 @@
 import React from "react";
-import heroImage from "./files/hero-boy.webp";
+import heroImage from "./files/hero-boy2.png";
 import brain from "./files/brain-logo.avif";
 import growth from "./files/growth-icon-flat.avif";
 import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section className="bg-[#f6f4ff] relative overflow-hidden mt-4">
+    <section className="bg-[#f6f4ff] relative overflow-hidden ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
         {/* ================= LEFT CONTENT ================= */}
@@ -62,7 +62,7 @@ export default function Hero() {
           {/* ================= STATS ================= */}
           <div className="grid grid-cols-3 gap-4 mt-10 text-center md:text-left bg-white/60 md:bg-transparent rounded-xl p-4 md:p-0">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900">300+</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900">400+</h3>
               <p className="text-xs md:text-sm text-gray-600">Students</p>
             </div>
             <div>

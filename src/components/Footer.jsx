@@ -53,7 +53,7 @@ export default function Footer() {
           {/* Bottom Text */}
           <div className="border-t border-white/20 pt-4 text-xs text-gray-200 space-y-1">
             <p>© {new Date().getFullYear()} Bachpan The Little Kingdom</p>
-            <p>Designed with ❤️ for Education</p>
+            <p>Designed by Kumar Saurav</p>
           </div>
         </div>
       </div>
@@ -91,8 +91,8 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className="hover:underline">
-                    About Us
+                  <Link to="https://btlk.scientificstudy.in/payment?key=btlk" className="hover:underline">
+                    Online Fee Payment
                   </Link>
                 </li>
                 <li>
@@ -111,9 +111,9 @@ export default function Footer() {
             {/* SOCIAL */}
             <div className="flex flex-col items-end">
               <div className="flex gap-4">
-                <SocialIcon Icon={FaFacebookF} />
-                <SocialIcon Icon={FaInstagram} />
-                <SocialIcon Icon={FaYoutube} />
+                <SocialIcon Icon={FaFacebookF} dest = {"https://www.facebook.com/@bachpangumla/?hr=1&wtsid=rdr_0METeFFJ1Q4QWwAKI"}/>
+                <SocialIcon Icon={FaInstagram} dest={"https://www.instagram.com/bachpanthelittlekingdom?igsh=c2RnbTJudW51dWQx"} />
+                <SocialIcon Icon={FaYoutube} dest={""}/>
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@ export default function Footer() {
               <p>
                 © {new Date().getFullYear()} Your School Name. All rights reserved.
               </p>
-              <p>Designed with ❤️ for Education</p>
+              <p>Designed By Kumar Saurav</p>
             </div>
           </div>
 
@@ -138,13 +138,15 @@ export default function Footer() {
     </>
   );
 }
-
+  
 /* ================= SOCIAL ICON ================= */
-function SocialIcon({ Icon }) {
+function SocialIcon({ Icon , dest}) {
   return (
+    <Link to={dest}>
     <div className="w-11 h-11 rounded-full bg-white text-[#4b2a7a] flex items-center justify-center cursor-pointer
       transition transform hover:scale-110 hover:bg-indigo-100 hover:shadow-lg">
       <Icon />
     </div>
+    </Link>
   );
 }

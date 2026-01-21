@@ -15,7 +15,7 @@ import g5 from "./galleryfiles/group5.jpg"
 import g6 from "./galleryfiles/group6.jpg"
 
 const Gallery = () => {
-  const images = [[img1,"Pool-Activity"], [img2 , "Indepndence-Day"], [img3 , "Sarhul"], [img4, "Fancy-Dress"], [img5,"Sports-Day"] ,[img6 , "Yoga-Day"],[ img7 , "EID-Celebration"], [img8 , "Sports-Day"]]
+  const images = [[img1,"Pool-Activity"], [img2 , "Indepndence-Day"], [img3 , "Karma Celebration"], [img4, "Fancy-Dress"], [img5,"Sports-Day"] ,[img6 , "Yoga-Day"],[ img7 , "EID-Celebration"], [img8 , "Sports-Day"]]
   const groups = [[g1 , "Independence-Day"], [g2 , "Deepawali-Celebration"], [g3 ,"Chistmas-Celebration" ], [g4 , "Lunch-Time!!"], [g5 , "ClassWork"], [g6 , "ClassWork"]]
 
   return (
@@ -52,10 +52,11 @@ const Gallery = () => {
 
               {/* Hover Overlay */}
               <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-4">
-                <p className="text-white text-sm">
+                
+              </div>
+              <p className="text-[#2b7a78] text-sm">
                   {img[1]}
                 </p>
-              </div>
             </div>
           ))}
 
@@ -82,10 +83,10 @@ const Gallery = () => {
 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
-                  <p className="text-white text-lg font-semibold">
+                </div>
+                <p className="text-[#2b7a78] text-lg font-semibold">
                     {img[1]}
                   </p>
-                </div>
               </div>
             ))}
 
