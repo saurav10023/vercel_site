@@ -11,7 +11,7 @@ const FeeStructure = () => {
             Fee Structure
           </h1>
           <p className="mt-4 text-base md:text-lg text-gray-600 font-medium">
-            New Admission Fee Structure – Session 2026–2027
+            New Admission Fee Structure – Session {new Date().getFullYear()}–{new Date().getFullYear()+1}
           </p>
         </div>
 
@@ -71,7 +71,7 @@ function InfoCard() {
         Play School – Behind Old State Bus Depot, Lohardaga Road, Dunduria, Gumla
       </p>
       <p className="text-gray-600 text-sm">
-        Primary School – Old DAV Campus, Bank Colony, Dunduria, Gumla, Jharkhand – 835
+        Primary School – Old DAV Campus, Bank Colony, Dunduria, Gumla, Jharkhand – 835207
       </p>
       <p className="text-gray-600 text-sm pt-2">
         U-DISE: <span className="font-medium">20160819409</span> | Contact:{" "}
