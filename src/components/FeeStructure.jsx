@@ -5,7 +5,7 @@ const FeeStructure = () => {
     <div className="bg-indigo-50 px-4 md:px-10">
       <div className="max-w-5xl mx-auto py-12">
 
-        {/* ================= HEADER ================= */}
+        {/* header */}
         <div className="text-center mb-14">
           <h1 className="text-3xl md:text-4xl font-extrabold text-purple-700 tracking-wide">
             Fee Structure
@@ -15,10 +15,9 @@ const FeeStructure = () => {
           </p>
         </div>
 
-        {/* ================= SCHOOL INFO ================= */}
         <InfoCard />
 
-        {/* ================= SECTIONS ================= */}
+        {/*admssion fee section */}
         <Section number="01" title="Admission Fees">
           <FeeRow label="Prospectus & Form" value="₹ 200" />
           <FeeRow label="Admission Fee (One Time)" value="₹ 7,000" />
@@ -26,9 +25,7 @@ const FeeStructure = () => {
           <FeeRow label="Smart Class & School App (Annual)" value="₹ 1,500" />
         </Section>
 
-        {/* <Section number="02" title="Admission Kit & Uniform (PG / LKG / UKG)">
-          <UniformGrid />
-        </Section> */}
+        
 
         <Section number="02" title="Monthly Tuition Fee">
           <MonthlyFeeList />
@@ -56,7 +53,6 @@ const FeeStructure = () => {
 
 export default FeeStructure;
 
-/* ================= COMPONENTS ================= */
 
 function InfoCard() {
   return (
@@ -110,33 +106,6 @@ function FeeRow({ label, value }) {
   );
 }
 
-// function UniformGrid() {
-//   const items = [
-//     ["Admission Kit", "₹ 3,650"],
-//     ["Summer Uniform", "₹ 850 × 2"],
-//     ["Winter Uniform", "₹ 1,200"],
-//     ["Sports Uniform", "₹ 600"],
-//   ];
-
-//   return (
-//     <>
-//       <div className="grid sm:grid-cols-2 gap-4">
-//         {items.map(([title, price], i) => (
-//           <div
-//             key={i}
-//             className="bg-purple-50 rounded-xl p-4 flex justify-between items-center"
-//           >
-//             <span className="text-gray-700 font-medium">{title}</span>
-//             <span className="font-bold text-purple-700">{price}</span>
-//           </div>
-//         ))}
-//       </div>
-//       <p className="mt-4 text-sm text-gray-600 text-center">
-//         + School Bag Included
-//       </p>
-//     </>
-//   );
-// }
 
 function MonthlyFeeList() {
   const data = [

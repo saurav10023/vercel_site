@@ -5,7 +5,7 @@ const Primary = () => {
   return (
     <div className="bg-indigo-50 px-4 md:px-10">
 
-      {/* ================= MOBILE HERO ================= */}
+      {/* mobile */}
       <div className="lg:hidden">
         <div className="relative w-full  rounded-xl overflow-hidden mt-4">
           <img
@@ -24,14 +24,14 @@ const Primary = () => {
         </div>
       </div>
 
-      {/* ================= DESKTOP BANNER (UNCHANGED) ================= */}
+      {/* desktop banner*/}
       <div className="hidden lg:block w-full h-auto">
         <img src={banner} alt="banner" />
       </div>
 
       <div className="max-w-6xl mx-auto py-5">
 
-        {/* ================= DESKTOP HEADER (UNCHANGED) ================= */}
+        {/* desktop header */}
         <div className="hidden lg:block text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold text-purple-700">
             Primary School
@@ -41,7 +41,6 @@ const Primary = () => {
           </p>
         </div>
 
-        {/* ================= CURRICULUM ================= */}
         <div className="mb-10">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
             Curriculum
@@ -80,7 +79,7 @@ const Primary = () => {
           </div>
         </div>
 
-        {/* ================= STEM ================= */}
+        {/* stem */}
         <div className="bg-purple-50 rounded-2xl p-6 mb-10">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
             STEM, Robotics & Technology
@@ -121,7 +120,7 @@ const Primary = () => {
           </div>
         </div>
 
-        {/* ================= INITIATIVES ================= */}
+        {/* initiatives */}
         <div className="mb-10">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
             Special Initiatives
@@ -141,7 +140,7 @@ const Primary = () => {
           </div>
         </div>
 
-        {/* ================= HEALTH ================= */}
+        {/* health */}
         <div className="bg-white rounded-2xl shadow-md p-6 mb-10">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
             Health & Physical Education
@@ -158,7 +157,7 @@ const Primary = () => {
           </p>
         </div>
 
-        {/* ================= CREATIVITY ================= */}
+        {/* creativity */}
         <div className="bg-purple-50 rounded-2xl p-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
             Creativity, Arts & Entrepreneurship
@@ -196,7 +195,7 @@ const Primary = () => {
 
 export default Primary;
 
-/* ================= REUSABLE CARD ================= */
+
 function InfoCard({ title, text }) {
   return (
     <div className="bg-white rounded-xl shadow p-5">

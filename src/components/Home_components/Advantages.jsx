@@ -74,7 +74,7 @@ export default function Advantages() {
         </div>
       </div>
 
-    {/* COURSES OFFERED */}
+    {/* courses */}
 <section className="bg-white py-16 md:py-24">
   <div className="max-w-6xl mx-auto px-6">
 
@@ -88,7 +88,6 @@ export default function Advantages() {
       </p>
     </div>
 
-    {/* Timeline */}
     <div className="relative">
 
       {/* Desktop center line */}
@@ -131,7 +130,6 @@ export default function Advantages() {
   );
 }
 
-/* ================= ADVANTAGE CARD ================= */
 function AdvCard({ icon, title, gradient, border }) {
   return (
     <div
@@ -151,7 +149,6 @@ function AdvCard({ icon, title, gradient, border }) {
         md:shadow-md md:hover:shadow-xl md:hover:-translate-y-2
       "
     >
-      {/* ICON */}
       <div
         className={`
           shrink-0
@@ -172,7 +169,6 @@ function AdvCard({ icon, title, gradient, border }) {
         </span>
       </div>
 
-      {/* TEXT */}
       <div
         className={`
           px-2 py-1
@@ -195,35 +191,7 @@ function AdvCard({ icon, title, gradient, border }) {
 }
 
 
-/* ================= COURSE CARD ================= */
-// function CourseCard({ icon, title, subtitle, text }) {
-//   return (
-//     <div className="relative bg-white rounded-2xl shadow-lg pt-16 pb-12 px-6 text-center transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl">
 
-//       <div className="absolute -top-6 left-1/2 -translate-x-1/2">
-//         <img src={clip} alt="clip" className="w-16 h-auto" />
-//       </div>
-
-//       <div className="absolute top-0 left-0 w-full h-2 bg-linear-to-r from-indigo-500 to-purple-500 rounded-t-2xl"></div>
-
-//       <div className="text-indigo-500 text-4xl mb-5 flex justify-center">
-//         {icon}
-//       </div>
-
-//       <h3 className="text-xl font-bold text-gray-900 mb-3">
-//         {title}
-//       </h3>
-
-//       <p className="text-sm font-semibold text-gray-800 mb-4">
-//         {subtitle}
-//       </p>
-
-//       <p className="text-gray-600 text-sm leading-relaxed">
-//         {text}
-//       </p>
-//     </div>
-//   );
-// }
 
 function CourseStep({ icon, title, subtitle, text, path }) {
   return (

@@ -8,7 +8,7 @@ import img4 from "./files/eating.jpg";
 export default function VisitGallery() {
   return (
     <section className="relative overflow-hidden bg-[#f6f4ff] py-14 sm:py-20">
-      {/* soft background accents */}
+      
       <div className="absolute -top-24 -left-24 w-72 h-72 bg-indigo-200 rounded-full blur-3xl opacity-40" />
       <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-purple-200 rounded-full blur-3xl opacity-40" />
 
@@ -47,7 +47,7 @@ export default function VisitGallery() {
           </div>
         </div>
 
-        {/* RIGHT IMAGE MOSAIC */}
+        {/*right image */}
         <div className="grid grid-cols-2 gap-4 sm:gap-6">
           <img
             src={img1}

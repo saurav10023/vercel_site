@@ -5,7 +5,7 @@ const PlayGroup = () => {
   return (
     <div className="bg-indigo-50 px-4 md:px-10">
 
-      {/* ================= MOBILE HEADER ================= */}
+      {/* MOBILE */}
       <div className="lg:hidden">
         <div className="relative w-full  rounded-xl overflow-hidden mt-4">
           <img
@@ -24,14 +24,14 @@ const PlayGroup = () => {
         </div>
       </div>
 
-      {/* ================= DESKTOP BANNER (UNCHANGED) ================= */}
+      {/* DESKTOP BANNER */}
       <div className="hidden lg:block w-full h-auto">
         <img src={banner} alt="banner" />
       </div>
 
       <div className="max-w-6xl py-5 mx-auto">
 
-        {/* ================= DESKTOP HEADER (UNCHANGED) ================= */}
+        {/* desktop header */}
         <div className="hidden lg:block text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold text-purple-700">
             Play Group
@@ -41,7 +41,7 @@ const PlayGroup = () => {
           </p>
         </div>
 
-        {/* ================= PHILOSOPHY ================= */}
+        
         <div className="bg-white rounded-2xl shadow-md p-6 mb-8">
           <p className="text-gray-700 leading-relaxed mb-4">
             We believe that at this early age, children should experience
@@ -59,7 +59,7 @@ const PlayGroup = () => {
           </p>
         </div>
 
-        {/* ================= ACTIVITIES ================= */}
+        {/* activities*/}
         <div className="mb-10">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
             Developmental Activities
@@ -106,7 +106,7 @@ const PlayGroup = () => {
           </div>
         </div>
 
-        {/* ================= RECOGNITION ================= */}
+        
         <div className="bg-purple-50 rounded-2xl p-6 mb-10">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
             Recognition of Letters & Numbers
@@ -128,7 +128,7 @@ const PlayGroup = () => {
 
 export default PlayGroup;
 
-/* ================= REUSABLE CARD ================= */
+
 function ActivityCard({ title, items }) {
   return (
     <div className="bg-white rounded-xl shadow p-5">

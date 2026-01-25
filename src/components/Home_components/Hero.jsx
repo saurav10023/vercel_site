@@ -9,7 +9,7 @@ export default function Hero() {
     <section className="bg-[#f6f4ff] relative overflow-hidden ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-        {/* ================= LEFT CONTENT ================= */}
+        {/* left*/}
         <div className="flex flex-col justify-center text-center md:text-left">
 
           <p className="text-indigo-500 font-semibold mb-3 text-base sm:text-lg md:text-2xl">
@@ -23,7 +23,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          {/* ================= MOBILE HERO IMAGE ================= */}
+          {/* mobile hero */}
           <div className="relative flex justify-center mt-8 mb-6 md:hidden">
             <div className="absolute w-56 h-56 bg-pink-200 rounded-full z-10"></div>
             <div className="absolute w-52 h-64 bg-pink-400 rounded-full z-0 mt-6 ml-8"></div>
@@ -40,7 +40,7 @@ export default function Hero() {
             creativity, and confidence in a safe and joyful environment.
           </p>
 
-          {/* ================= BUTTONS ================= */}
+          {/* button*/}
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:flex gap-3 justify-center md:justify-start">
             <Link to="courses/playgroup">
               <button className="w-full md:w-auto px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-md hover:bg-indigo-700 transition">
@@ -59,7 +59,7 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* ================= STATS ================= */}
+          {/* stats*/}
           <div className="grid grid-cols-3 gap-4 mt-10 text-center md:text-left bg-white/60 md:bg-transparent rounded-xl p-4 md:p-0">
             <div>
               <h3 className="text-xl md:text-2xl font-bold text-gray-900">400+</h3>
@@ -76,10 +76,10 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ================= DESKTOP HERO IMAGE ================= */}
+        {/* desktop hero */}
         <div className="relative hidden md:flex justify-center">
 
-          {/* background circles */}
+          {/* background circles*/}
           <div className="absolute w-96 h-96 bg-pink-200 rounded-full z-10"></div>
           <div className="absolute w-80 h-96 bg-pink-400 rounded-full z-0 mt-6 ml-10"></div>
 
@@ -89,7 +89,7 @@ export default function Hero() {
             className="relative z-10 max-h-130"
           />
 
-          {/* floating icons (desktop only) */}
+          {/* floating icons for desktop*/}
           <div className="absolute top-10 right-10 bg-white shadow-lg rounded-full p-3 text-indigo-600 text-2xl">
             🎒
           </div>

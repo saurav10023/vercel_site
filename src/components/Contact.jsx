@@ -8,7 +8,6 @@ const ContactUs = () => {
     <section className="w-full bg-indigo-50 py-14 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
         
-        {/* Heading */}
         <div className="text-center mb-10 sm:mb-14">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-indigo-700">
             Contact Us
@@ -18,7 +17,7 @@ const ContactUs = () => {
           </p>
         </div>
 
-        {/* Contact Cards */}
+        {/* Contact*/}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           
           {/* Address */}
@@ -43,7 +42,6 @@ const ContactUs = () => {
             </p>
           </div>
 
-          {/* Email */}
           <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 sm:p-7">
             <div className="flex items-center gap-3 mb-5">
               <Mail className="text-indigo-600 w-6 h-6" />
@@ -56,7 +54,6 @@ const ContactUs = () => {
             </p>
           </div>
 
-          {/* Phone */}
           <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 sm:p-7">
             <div className="flex items-center gap-3 mb-5">
               <Phone className="text-indigo-600 w-6 h-6" />
@@ -73,7 +70,6 @@ const ContactUs = () => {
           </div>
         </div>
 
-        {/* CTA */}
         <div className="mt-12 sm:mt-16 text-center">
           <p className="text-gray-600 mb-6 text-sm sm:text-base">
             We’re happy to help you with admissions, queries, and visits.
@@ -89,8 +85,6 @@ const ContactUs = () => {
           </Link>
         </div>
       </div>
-
-      {/* FAQ Section */}
       <div className="mt-16 sm:mt-20">
         <FAQSection />
       </div>

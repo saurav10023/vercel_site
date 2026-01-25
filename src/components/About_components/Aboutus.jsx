@@ -4,7 +4,7 @@ const AboutUs = () => {
   return (
     <section className="bg-[#f6faf9] px-4 sm:px-6 md:px-12">
 
-      {/* ================= MOBILE HERO ================= */}
+      {/*  MOBILE HERO */}
       <div className="lg:hidden">
         <div className="relative w-full h-60 rounded-xl overflow-hidden mt-4">
           <img
@@ -20,17 +20,16 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* ================= DESKTOP BANNER (UNCHANGED) ================= */}
+      {/* desktop banner */}
       <div className="hidden lg:block">
         <img src={banner} alt="banner" />
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 py-6">
 
-        {/* ================= LEFT CONTENT ================= */}
+        {/* left content */}
         <div className="lg:col-span-2 space-y-10">
 
-          {/* ABOUT US (DESKTOP HEADING ONLY) */}
           <div>
             <h2 className="hidden lg:block text-3xl font-semibold text-[#2b7a78] mb-4">
               About Us
@@ -80,7 +79,7 @@ const AboutUs = () => {
           </div>
         </div>
 
-        {/* ================= RIGHT SIDEBAR ================= */}
+        {/* RIGHT SIDEBAR */}
         <div className="space-y-8">
 
           <InfoCard
@@ -106,7 +105,7 @@ const AboutUs = () => {
 
 export default AboutUs;
 
-/* ================= REUSABLE CARD ================= */
+
 function InfoCard({ title, text }) {
   return (
     <div className="bg-white rounded-2xl shadow-md p-6 transition hover:-translate-y-1 hover:shadow-xl">

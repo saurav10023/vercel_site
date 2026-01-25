@@ -22,7 +22,6 @@ const Gallery = () => {
     <section className="bg-linear-to-b from-[#f6faf9] to-white min-h-screen py-16 px-4 sm:px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
 
-        {/* HEADER */}
         <div className="text-center mb-16 relative">
           <div className="absolute left-1/2 -translate-x-1/2 -top-6 w-24 h-1 bg-[#2b7a78] rounded-full"></div>
 
@@ -36,7 +35,7 @@ const Gallery = () => {
           </p>
         </div>
 
-        {/* MAIN IMAGE GRID */}
+        {/*images */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
 
           {images.map((img, index) => (
@@ -50,7 +49,6 @@ const Gallery = () => {
                 className="w-full h-40 sm:h-52 md:h-56 lg:h-60 object-cover transition-transform duration-700 group-hover:scale-110"
               />
 
-              {/* Hover Overlay */}
               <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-4">
                 
               </div>
@@ -62,7 +60,7 @@ const Gallery = () => {
 
         </div>
 
-        {/* GROUP PHOTOS */}
+        {/* group photoes */}
         <div className="mt-20">
           <h2 className="text-2xl font-semibold text-[#2b7a78] text-center mb-10">
             Group Activities & Celebrations
@@ -81,7 +79,6 @@ const Gallery = () => {
                   className="w-full h-60 sm:h-72 md:h-80 object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center">
                 </div>
                 <p className="text-[#2b7a78] text-lg font-semibold">

@@ -6,7 +6,7 @@ export default function VisionMission() {
     <section className="bg-[#f6f4ff] py-16">
       <div className="max-w-6xl mx-auto px-6">
 
-        {/* SECTION TITLE */}
+        {/* title */}
         <div className="text-center mb-15">
           <h2 className="text-3xl md:text-4xl font-bold text-indigo-700">
             Our Foundation
@@ -43,7 +43,6 @@ export default function VisionMission() {
   );
 }
 
-/* CARD COMPONENT */
 function Card({ icon, title, text }) {
   return (
     <div className="relative bg-white rounded-xl shadow-lg pt-14 pb-10 px-6 text-center transition hover:-translate-y-2 hover:shadow-2xl">
@@ -54,20 +53,16 @@ function Card({ icon, title, text }) {
         <img src={clip} alt="clip" />
       </div>
 
-      {/* TOP STRIP */}
       <div className="absolute top-0 left-0 w-full h-2 bg-indigo-500 rounded-t-xl"></div>
 
-      {/* ICON */}
       <div className="text-indigo-500 text-4xl mb-4 flex justify-center">
         {icon}
       </div>
 
-      {/* TITLE */}
       <h3 className="text-xl font-bold text-gray-900 mb-3">
         {title}
       </h3>
 
-      {/* TEXT */}
       <p className="text-gray-600 text-sm leading-relaxed">
         {text}
       </p>

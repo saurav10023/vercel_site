@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 
 export default function Header() {
-  /* ================= MOBILE STATES ================= */
+  /*MOBILE STATES */
   const [menuOpen, setMenuOpen] = useState(false);
   const [courseOpen, setCourseOpen] = useState(false);
   const [admissionOpen, setAdmissionOpen] = useState(false);
@@ -44,7 +44,7 @@ export default function Header() {
     setCourseOpen(false);
   };
 
-  /* ================= DESKTOP STATES ================= */
+  /*DESKTOP STATES  */
   const [display1, setDisplay1] = useState(false);
   const [display2, setDisplay2] = useState(false);
 
@@ -65,7 +65,7 @@ export default function Header() {
 
   return (
     <>
-      {/* ================= MOBILE HEADER ================= */}
+      {/* mobile  */}
       <div className="lg:hidden sticky top-0 z-50 bg-fuchsia-800 shadow-md">
         <div className="flex justify-between items-center px-4 py-3">
           <div className="flex items-center gap-3">
@@ -93,7 +93,6 @@ export default function Header() {
               <HandshakeIcon size={20} /> About Us
             </Link>
 
-            {/* COURSES */}
             <button onClick={clickcourse} className="flex justify-between w-full font-semibold py-2">
               <span className="flex items-center gap-3">
                 <Backpack size={20} /> Our Courses
@@ -115,7 +114,6 @@ export default function Header() {
               </div>
             )}
 
-            {/* ADMISSION */}
             <button onClick={clickadmission} className="flex justify-between w-full font-semibold py-2">
               <span className="flex items-center gap-3">
                 <FileUserIcon size={20} /> Admission
@@ -160,7 +158,7 @@ export default function Header() {
         )}
       </div>
 
-      {/* ================= DESKTOP HEADER (UNCHANGED) ================= */}
+      {/* desktop*/}
       <div className="hidden lg:block sticky top-0 z-50">
 
         <header className="w-full shadow-2xl">

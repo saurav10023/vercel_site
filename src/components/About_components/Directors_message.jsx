@@ -12,15 +12,14 @@ const DirectorsMessage = () => {
     <section className="bg-[#f6faf9] py-12 md:py-16 px-4 sm:px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
 
-        {/* ================= HEADER ================= */}
+        {/* header */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text- mb-8 md:mb-10 text-center md:text-left">
           Director’s Message
         </h2>
 
-        {/* ================= CARD ================= */}
         <div className="bg-white rounded-2xl shadow-md p-6 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 items-start">
 
-          {/* ================= IMAGE (MOBILE FIRST) ================= */}
+          {/* image mobile first*/}
           <div className="flex flex-col items-center md:order-2">
             <div className="w-48 h-56 md:w-58 md:h-66 bg-gray-200 rounded-lg overflow-hidden mb-4">
               <img
@@ -30,7 +29,6 @@ const DirectorsMessage = () => {
               />
             </div>
 
-            {/* SOCIAL ICONS */}
             <div className="flex gap-3 ">
               <div className="bg-[#2b7a78] rounded-full" >
                 <SocialIcon
@@ -52,7 +50,7 @@ const DirectorsMessage = () => {
             </div>
           </div>
 
-          {/* ================= MESSAGE CONTENT ================= */}
+          {/* message*/}
           <div className="md:col-span-2 text-gray-700 leading-relaxed space-y-4 md:order-1">
 
             <p className="md:indent-8">
@@ -118,7 +116,7 @@ const DirectorsMessage = () => {
   );
 };
 
-/* ================= SOCIAL ICON ================= */
+
 function SocialIcon({ Icon, add = "" }) {
   return (
     <Link to={add}>

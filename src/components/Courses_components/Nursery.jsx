@@ -5,7 +5,7 @@ const Nursery = () => {
   return (
     <div className="bg-indigo-50 px-4 md:px-10">
 
-      {/* ================= MOBILE HEADER ================= */}
+      {/*mobile header*/}
       <div className="lg:hidden">
         <div className="relative w-full h-55 rounded-xl overflow-hidden mt-4">
           <img
@@ -24,7 +24,7 @@ const Nursery = () => {
         </div>
       </div>
 
-      {/* ================= DESKTOP HEADER (UNCHANGED) ================= */}
+      {/* desktop header */}
       <div className="hidden lg:block">
         <div className="w-full h-auto">
           <img src={banner} alt="banner" />
@@ -33,7 +33,7 @@ const Nursery = () => {
 
       <div className="max-w-6xl py-5 mx-auto">
 
-        {/* ================= DESKTOP TITLE (UNCHANGED) ================= */}
+        {/*  title desktop*/}
         <div className="hidden lg:block text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold text-purple-700">
             Kindergarten (Foundational -1)
@@ -43,9 +43,7 @@ const Nursery = () => {
           </p>
         </div>
 
-        {/* ================= CONTENT (UNCHANGED FOR ALL) ================= */}
 
-        {/* Philosophy */}
         <div className="bg-white rounded-2xl shadow-md p-6 mb-8">
           <p className="text-gray-700 leading-relaxed mb-4">
             At <span className="font-semibold">BTLK</span>, we believe that every
@@ -60,7 +58,6 @@ const Nursery = () => {
           </p>
         </div>
 
-        {/* Curriculum */}
         <div className="mb-10">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
             Curriculum Overview
@@ -101,7 +98,7 @@ const Nursery = () => {
           </div>
         </div>
 
-        {/* Activities */}
+        {/* activities */}
         <div className="bg-purple-50 rounded-2xl p-6 mb-10">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
             Learning Through Activities
@@ -115,7 +112,6 @@ const Nursery = () => {
           </ul>
         </div>
 
-        {/* Special Initiatives */}
         <div className="mb-10">
           <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
             Special Initiatives
@@ -142,7 +138,7 @@ const Nursery = () => {
           </div>
         </div>
 
-        {/* Physical Health */}
+        {/* health */}
         <div className="bg-white rounded-2xl shadow-md p-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-4 text-center">
             Physical Education & Health
