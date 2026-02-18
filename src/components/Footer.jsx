@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import {
   FaFacebookF,
   FaInstagram,
-  FaYoutube
+  FaYoutube,
+  FaGithub
 } from "react-icons/fa";
 import logo from "../files/logo.jpg";
 
@@ -42,14 +43,14 @@ export default function Footer() {
 
           {/* icons */}
           <div className="flex justify-center gap-4">
-            <SocialIcon Icon={FaFacebookF} />
-            <SocialIcon Icon={FaInstagram} />
-            <SocialIcon Icon={FaYoutube} />
+            <SocialIcon Icon={FaFacebookF} dest={"https://www.facebook.com/@bachpangumla/?hr=1&wtsid=rdr_0METeFFJ1Q4QWwAKI"}/>
+            <SocialIcon Icon={FaInstagram}  dest={"https://www.instagram.com/bachpanthelittlekingdom?igsh=c2RnbTJudW51dWQx"}/>
+            <SocialIcon Icon={FaYoutube}  dest={""}/>
           </div>
 
           <div className="border-t border-white/20 pt-4 text-xs text-gray-200 space-y-1">
             <p>© {new Date().getFullYear()} Bachpan The Little Kingdom</p>
-            <p>Designed by Kumar Saurav</p>
+            <Link to={"https://github.com/saurav10023"} className="underline hover:text-blue-400"><p className="text-center mt-3 ml-2">Designed By Kumar Saurav</p></Link>
           </div>
         </div>
       </div>
@@ -122,7 +123,7 @@ export default function Footer() {
               <p>
                 © {new Date().getFullYear()} Your School Name. All rights reserved.
               </p>
-              <p>Designed By Kumar Saurav</p>
+              <Link to={"https://github.com/saurav10023"} className="underline hover:text-blue-400"><p className="text-center mt-3 ml-2">Designed By Kumar Saurav</p></Link>
             </div>
           </div>
 
