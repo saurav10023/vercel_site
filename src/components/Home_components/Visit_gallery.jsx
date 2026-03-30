@@ -1,79 +1,264 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import img1 from "./files/sarhul.jpg";
 import img2 from "./files/playgroup.jpg";
 import img3 from "./files/flaggirl.jpg";
 import img4 from "./files/eating.jpg";
 
+const photos = [
+  { src: img1, label: "Sarhul Festival" },
+  { src: img2, label: "Play Group" },
+  { src: img3, label: "Flag Hoisting" },
+  { src: img4, label: "Lunch Break" },
+];
+
+const stats = [
+  { num: "500+", label: "Students" },
+  { num: "15+", label: "Activities" },
+  { num: "10+", label: "Years" },
+];
+
+const photoHeights = ["180px", "220px", "160px", "190px"];
+const photoAligns = ["flex-start", "flex-end", "flex-start", "flex-start"];
+
 export default function VisitGallery() {
+  const [hovered, setHovered] = useState(null);
+  const [btnHover, setBtnHover] = useState(false);
+  const [telHover, setTelHover] = useState(false);
+
   return (
-    <section className="relative overflow-hidden bg-[#f6f4ff] py-14 sm:py-20">
-      
-      <div className="absolute -top-24 -left-24 w-72 h-72 bg-indigo-200 rounded-full blur-3xl opacity-40" />
-      <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-purple-200 rounded-full blur-3xl opacity-40" />
+    <section
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        padding: "80px 24px",
+        background: "#F3F4F6",
+        fontFamily: "Poppins, sans-serif",
+      }}
+    >
+      {/* Decorative Blob */}
+      <div
+        style={{
+          position: "absolute",
+          top: -80,
+          left: -80,
+          width: "300px",
+          height: "300px",
+          borderRadius: "50%",
+          background: "#6D28D9",
+          opacity: 0.15,
+          filter: "blur(80px)",
+        }}
+      />
 
-      <div className="relative max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      {/* Grid */}
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "60px",
+          alignItems: "center",
+        }}
+      >
+        {/* LEFT */}
+        <div>
+          <p
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.35em",
+              textTransform: "uppercase",
+              color: "#6D28D9",
+              marginBottom: "16px",
+            }}
+          >
+            Bachpan · The Little Kingdom · Gumla
+          </p>
 
-        {/* LEFT CONTENT */}
-        <div className="text-center lg:text-left">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-            Let your <span className="text-indigo-600">children</span><br />
+          <h2
+            style={{
+              fontSize: "clamp(2rem,4vw,3rem)",
+              color: "#111827",
+              lineHeight: 1.2,
+              marginBottom: "20px",
+              fontWeight: "700",
+            }}
+          >
+            Let your{" "}
+            <span
+              style={{
+                background:
+                  "linear-gradient(90deg,#4F46E5,#6D28D9)",
+                WebkitBackgroundClip: "text",
+                color: "transparent",
+              }}
+            >
+              children
+            </span>
+            <br />
             learn from the best.
           </h2>
 
-          <p className="text-gray-600 mt-5 max-w-xl mx-auto lg:mx-0 text-sm sm:text-base">
-            Discover a joyful learning environment where children grow academically,
-            socially, and emotionally through creativity and care.
+          <p
+            style={{
+              fontSize: "16px",
+              color: "#4B5563",
+              lineHeight: 1.7,
+              maxWidth: "420px",
+              marginBottom: "30px",
+            }}
+          >
+            Discover a joyful learning environment where children grow
+            academically, socially, and emotionally through creativity and care.
           </p>
 
-          <p className="text-gray-700 mt-4 font-medium text-sm sm:text-base">
-            👉 Take a look, relive the moments, and see what makes our school so unique.
-          </p>
-
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          {/* Buttons */}
+          <div
+            style={{
+              display: "flex",
+              gap: "16px",
+              marginBottom: "40px",
+              flexWrap: "wrap",
+            }}
+          >
             <Link
               to="/gallery"
-              className="px-7 py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-md hover:bg-indigo-700 transition"
+              style={{
+                padding: "14px 30px",
+                borderRadius: "40px",
+                background:
+                  "linear-gradient(90deg,#4F46E5,#6D28D9)",
+                color: "white",
+                textDecoration: "none",
+                fontWeight: "600",
+                boxShadow: btnHover
+                  ? "0 10px 30px rgba(79,70,229,0.4)"
+                  : "0 6px 20px rgba(79,70,229,0.25)",
+                transform: btnHover ? "translateY(-2px)" : "none",
+                transition: "0.25s",
+              }}
+              onMouseEnter={() => setBtnHover(true)}
+              onMouseLeave={() => setBtnHover(false)}
             >
-              Visit Gallery
+              Visit Gallery →
             </Link>
 
             <a
               href="tel:+919608881888"
-              className="px-7 py-3 rounded-xl border border-indigo-600 text-indigo-600 font-semibold hover:bg-indigo-50 transition"
+              style={{
+                padding: "14px 30px",
+                borderRadius: "40px",
+                border: "2px solid #4F46E5",
+                color: "#4F46E5",
+                textDecoration: "none",
+                fontWeight: "600",
+                background: telHover ? "#EEF2FF" : "transparent",
+                transition: "0.25s",
+              }}
+              onMouseEnter={() => setTelHover(true)}
+              onMouseLeave={() => setTelHover(false)}
             >
               📞 Contact Us
             </a>
           </div>
+
+          {/* Stats */}
+          <div style={{ display: "flex", gap: "40px" }}>
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <h3
+                  style={{
+                    fontSize: "28px",
+                    color: "#111827",
+                    margin: 0,
+                  }}
+                >
+                  {stat.num}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "11px",
+                    letterSpacing: "0.25em",
+                    textTransform: "uppercase",
+                    color: "#6B7280",
+                    marginTop: "4px",
+                  }}
+                >
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/*right image */}
-        <div className="grid grid-cols-2 gap-4 sm:gap-6">
-          <img
-            src={img1}
-            alt="Student activity"
-            className="rounded-2xl object-cover h-40 sm:h-48 lg:h-56 shadow-lg hover:scale-105 transition"
-          />
+        {/* RIGHT PHOTOS */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "16px",
+          }}
+        >
+          {photos.map((photo, i) => (
+            <div
+              key={i}
+              style={{
+                position: "relative",
+                overflow: "hidden",
+                borderRadius: "18px",
+                height: photoHeights[i],
+                alignSelf: photoAligns[i],
+                cursor: "pointer",
+              }}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+            >
+              <img
+                src={photo.src}
+                alt={photo.label}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  transform: hovered === i ? "scale(1.08)" : "scale(1)",
+                  transition: "0.5s",
+                }}
+              />
 
-          <img
-            src={img2}
-            alt="Happy child"
-            className="rounded-2xl object-cover h-44 sm:h-56 lg:h-64 shadow-lg self-end hover:scale-105 transition"
-          />
-
-          <img
-            src={img3}
-            alt="Learning activity"
-            className="rounded-2xl object-cover h-36 sm:h-44 lg:h-52 shadow-lg hover:scale-105 transition"
-          />
-
-          <img
-            src={img4}
-            alt="Creative class"
-            className="rounded-2xl object-cover h-40 sm:h-48 lg:h-52 shadow-lg self-start hover:scale-105 transition"
-          />
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  padding: "10px",
+                  background:
+                    "linear-gradient(to top, rgba(0,0,0,0.6), transparent)",
+                  color: "white",
+                  fontSize: "13px",
+                  opacity: hovered === i ? 1 : 0,
+                  transition: "0.3s",
+                }}
+              >
+                {photo.label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
+
+      <p
+        style={{
+          textAlign: "center",
+          marginTop: "60px",
+          fontSize: "11px",
+          letterSpacing: "0.25em",
+          color: "#9CA3AF",
+        }}
+      >
+        © Bachpan · The Little Kingdom · Gumla
+      </p>
     </section>
   );
 }
