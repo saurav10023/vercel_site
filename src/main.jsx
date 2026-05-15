@@ -16,6 +16,7 @@ import { Contact } from 'lucide-react'
 import ContactUs from './components/Contact.jsx'
 import Gallery from './components/Gallery.jsx'
 import FeeStructure from './components/FeeStructure.jsx'
+import Holidays from './components/Holidays.jsx'
 
 const router = createBrowserRouter([
   
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
       { path: "contact", element: <ContactUs /> },
       { path: "gallery", element: <Gallery /> },
       { path: "feestructure", element: <FeeStructure /> },
+      {path: "holidays" , element:<Holidays/>},
        { path: "*", element: <Navigate to="/home" replace /> }
     ]
   }

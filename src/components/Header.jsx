@@ -21,14 +21,19 @@ import {
   FileQuestion,
   UserCheck,
   AlignVerticalJustifyEnd,
+  CalendarDays,
+  MonitorPlay,
+  Info,
 } from "lucide-react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [courseOpen, setCourseOpen] = useState(false);
   const [admissionOpen, setAdmissionOpen] = useState(false);
+  const [schoolInfoOpen, setSchoolInfoOpen] = useState(false);
   const [display1, setDisplay1] = useState(false);
   const [display2, setDisplay2] = useState(false);
+  const [display3, setDisplay3] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const desktopRef = useRef(null);
@@ -44,6 +49,7 @@ export default function Header() {
       if (desktopRef.current && !desktopRef.current.contains(e.target)) {
         setDisplay1(false);
         setDisplay2(false);
+        setDisplay3(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -54,31 +60,49 @@ export default function Header() {
     setMenuOpen(false);
     setCourseOpen(false);
     setAdmissionOpen(false);
+    setSchoolInfoOpen(false);
   };
 
   const clickcourse = () => {
     setCourseOpen(!courseOpen);
     setAdmissionOpen(false);
+    setSchoolInfoOpen(false);
   };
 
   const clickadmission = () => {
     setAdmissionOpen(!admissionOpen);
     setCourseOpen(false);
+    setSchoolInfoOpen(false);
+  };
+
+  const clickschoolinfo = () => {
+    setSchoolInfoOpen(!schoolInfoOpen);
+    setCourseOpen(false);
+    setAdmissionOpen(false);
   };
 
   const off = () => {
     setDisplay1(false);
     setDisplay2(false);
+    setDisplay3(false);
   };
 
   const togglecourse = () => {
     setDisplay1(!display1);
     setDisplay2(false);
+    setDisplay3(false);
   };
 
   const toggleadd = () => {
     setDisplay2(!display2);
     setDisplay1(false);
+    setDisplay3(false);
+  };
+
+  const toggleschoolinfo = () => {
+    setDisplay3(!display3);
+    setDisplay1(false);
+    setDisplay2(false);
   };
 
   const FUCHSIA = "#86198f";
@@ -117,6 +141,13 @@ export default function Header() {
     borderRadius: "8px",
     margin: "2px 4px",
   };
+
+  const schoolInfoItems = [
+    { to: "/gallery", icon: <ImagesIcon size={15} />, label: "Gallery" },
+    { to: "/feestructure", icon: <AlignVerticalJustifyEnd size={15} />, label: "Fee Structure" },
+    { to: "/holidays", icon: <CalendarDays size={15} />, label: "Holiday List" },
+    { to: "https://btlk.scientificstudy.in/login", icon: <MonitorPlay size={15} />, label: "School Portal Login" },
+  ];
 
   return (
     <>
@@ -252,9 +283,7 @@ export default function Header() {
                 <span style={{ color: FUCHSIA }}><Backpack size={18} /></span>
                 Our Courses
               </span>
-              {courseOpen
-                ? <ChevronUp size={16} color={FUCHSIA} />
-                : <ChevronDown size={16} color={FUCHSIA} />}
+              {courseOpen ? <ChevronUp size={16} color={FUCHSIA} /> : <ChevronDown size={16} color={FUCHSIA} />}
             </button>
             {courseOpen && (
               <div style={{ marginLeft: "16px", borderLeft: `2px solid ${FUCHSIA_BORDER}`, paddingLeft: "12px", paddingTop: "6px", paddingBottom: "6px", display: "flex", flexDirection: "column", gap: "6px" }}>
@@ -294,9 +323,7 @@ export default function Header() {
                 <span style={{ color: FUCHSIA }}><FileUserIcon size={18} /></span>
                 Admission
               </span>
-              {admissionOpen
-                ? <ChevronUp size={16} color={FUCHSIA} />
-                : <ChevronDown size={16} color={FUCHSIA} />}
+              {admissionOpen ? <ChevronUp size={16} color={FUCHSIA} /> : <ChevronDown size={16} color={FUCHSIA} />}
             </button>
             {admissionOpen && (
               <div style={{ marginLeft: "16px", borderLeft: `2px solid ${FUCHSIA_BORDER}`, paddingLeft: "12px", paddingTop: "6px", paddingBottom: "6px", display: "flex", flexDirection: "column", gap: "6px" }}>
@@ -313,10 +340,44 @@ export default function Header() {
               </div>
             )}
 
+            {/* School Info — mobile accordion */}
+            <button
+              onClick={clickschoolinfo}
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                width: "100%",
+                padding: "12px 4px",
+                fontFamily: "sans-serif",
+                fontSize: "14px",
+                fontWeight: 600,
+                color: FUCHSIA_DARK,
+                background: "none",
+                border: "none",
+                borderBottom: "1px solid #fae8ff",
+                cursor: "pointer",
+              }}
+            >
+              <span style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <span style={{ color: FUCHSIA }}><Info size={18} /></span>
+                School Info
+              </span>
+              {schoolInfoOpen ? <ChevronUp size={16} color={FUCHSIA} /> : <ChevronDown size={16} color={FUCHSIA} />}
+            </button>
+            {schoolInfoOpen && (
+              <div style={{ marginLeft: "16px", borderLeft: `2px solid ${FUCHSIA_BORDER}`, paddingLeft: "12px", paddingTop: "6px", paddingBottom: "6px", display: "flex", flexDirection: "column", gap: "6px" }}>
+                {schoolInfoItems.map((item) => (
+                  <Link key={item.label} to={item.to} onClick={closeAll}
+                    style={{ display: "flex", alignItems: "center", gap: "10px", padding: "8px 12px", borderRadius: "8px", background: FUCHSIA_LIGHT, fontFamily: "sans-serif", fontSize: "13px", color: FUCHSIA, textDecoration: "none" }}>
+                    {item.icon} {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+
             {[
-              { to: "/feestructure", icon: <AlignVerticalJustifyEnd size={18} />, label: "Fee Structure" },
               { to: "https://btlk.scientificstudy.in/payment?key=btlk", icon: <CreditCardIcon size={18} />, label: "Online Fee Payment" },
-              { to: "/gallery", icon: <ImagesIcon size={18} />, label: "Gallery" },
               { to: "/contact", icon: <HeadsetIcon size={18} />, label: "Contact Us" },
               { to: "https://jobs.scientificstudy.in/career?schoolcode=btlk", icon: <UserPlusIcon size={18} />, label: "Career" },
             ].map((item) => (
@@ -477,8 +538,42 @@ export default function Header() {
                   )}
                 </li>
 
+                {/* School Info dropdown */}
+                <li style={{ position: "relative" }}>
+                  <button
+                    onClick={toggleschoolinfo}
+                    style={{
+                      ...navLinkStyle,
+                      borderBottom: display3 ? "2px solid rgba(255,255,255,0.75)" : "2px solid transparent",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "4px",
+                    }}
+                  >
+                    School Info
+                    <ChevronDown size={14} style={{ transition: "transform 0.2s", transform: display3 ? "rotate(180deg)" : "rotate(0deg)" }} />
+                  </button>
+                  {display3 && (
+                    <ul style={{ position: "absolute", top: "calc(100% + 10px)", left: "50%", transform: "translateX(-50%)", background: "#ffffff", borderRadius: "12px", boxShadow: "0 8px 40px rgba(134,25,143,0.18)", minWidth: "220px", padding: "6px 0", listStyle: "none", margin: 0, border: "1px solid #f5d0fe" }}>
+                      {schoolInfoItems.map((item) => (
+                        <li key={item.label}>
+                          <Link
+                            to={item.to}
+                            onClick={toggleschoolinfo}
+                            style={dropdownItemStyle}
+                            onMouseEnter={(e) => (e.currentTarget.style.background = FUCHSIA_LIGHT)}
+                            onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                          >
+                            <span style={{ color: FUCHSIA }}>{item.icon}</span>
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+
                 {[
-                  { to: "/gallery", label: "Gallery" },
                   { to: "/contact", label: "Contact Us" },
                   { to: "https://jobs.scientificstudy.in/career?schoolcode=btlk", label: "Career" },
                 ].map((item) => (
@@ -499,13 +594,11 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Quick links bar */}
+        {/* Quick links bar — Fee Structure & School Portal Login removed; Online Fee Payment kept */}
         <div style={{ background: "#ffffff", borderBottom: "1px solid #fae8ff", padding: "7px 24px" }}>
           <div style={{ maxWidth: "1280px", margin: "0 auto", display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap" }}>
             {[
-              { to: "/feestructure", label: "&#129534; Fee Structure" },
               { to: "https://btlk.scientificstudy.in/payment?key=btlk", label: "&#128179; Online Fee Payment" },
-              { to: "https://btlk.scientificstudy.in/login", label: "&#127909; School Portal Login" },
               { to: "https://btlk.scientificstudy.in/admissionregistration?key=btlk", label: "&#129534; Online Registration" },
             ].map((item) => (
               <Link
